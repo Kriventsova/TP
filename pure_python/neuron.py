@@ -39,7 +39,7 @@ class Neuron:
     def get_bias(self):
         return self.__weights[0]
 
-#веса дельт, по факту приравниваем к весам дельт  обычные веса по i
+#веса дельт, по факту прибавляем  к весам дельт  обычные веса по i каждый раз
     def correct_weights(self, weights_deltas):
         for i in range(len(self.__weights)):
             self.__weights[i] += weights_deltas[i]
