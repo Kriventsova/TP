@@ -31,7 +31,7 @@ def send_text(message):
        a = 2
        print(datetime.datetime.now(), a)
        bot.send_message(message.chat.id, 'готово')
-    while a == 1:
+    while a == 1: #цикл подсчета горения
         datetime_2=0
         datetime_1 = datetime.datetime.now()
         time.sleep(1)
