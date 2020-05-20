@@ -1,0 +1,45 @@
+import telebot #импорт библиотеки для общения по API с телеграм
+import pifx
+from pifx import PIFX
+import datetime
+
+p = pifx.PIFX(api_key='cb5db214d3a014eee465650483b42a9585841f889c54a4f199f3882d2c9751cb')
+
+bot = telebot.TeleBot('786010958:AAFR62_PTKrpLyK8u9_GwBtixMwHnEfm5vg') #указываем уникальный токен,созданный для нас telegram
+
+keyboard1 = telebot.types.ReplyKeyboardMarkup()
+keyboard1.row('включить', 'выключить')
+a = 0
+datetime_1 = datetime.datetime.now()
+@bot.message_handler(commands=['start'])
+
+
+#реакция на start
+def start_message(message):
+    bot.send_message(message.chat.id, 'Слушаю и повинуюсь', reply_markup=keyboard1)
+
+@bot.message_handler(content_types=['text'])
+def send_text(message):
+    if message.text.lower() == 'включить':
+          p.set_state(brightness='0.99')
+          a = 1,
+          print(datetime.datetime.now(),a)
+          bot.send_message(message.chat.id, 'готово')
+
+    elif message.text.lower() == 'выключить':
+        p.set_state(brightness='0.00')
+        a = 2,
+        print(datetime.datetime.now(), a)
+        bot.send_message(message.chat.id, 'готово')
+bot.polling() #чтобы бот сразу не выключался-бесконечный
+
+def counter(a):
+ while a <= 1:
+    datetime_1 = datetime_1 - datetime.datetime.now()
+ else:
+    print(datetime_1)
+ return datetime_1
+ 
+summ_1=0
+def summ(counter):
+    summ_1 =datetime_1
